@@ -13,3 +13,25 @@ plt.scatter(X_test[0], X_test[1], s=170, color='green')
 plt.show()
 
 
+
+#Distance function
+def dist(x, y):
+  return np.sqrt(np.sum((x-y)**2))
+
+
+
+# for each point X_train we compute its distance to X_test:
+
+num = len(X_train)
+distance = np.zeros(num)
+for i in range(num):
+  distance[i] = dist(X_train[i], X_test)
+print(distance)
+
+
+
+#Choose the point in X_train with the minimal distance from X_new
+
+min_index = np.argmin(distance)
+
+print(Y_train[min_index])
